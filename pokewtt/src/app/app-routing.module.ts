@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PokelistComponent } from './pokelist/pokelist.component';
-
+import { ExampleListComponent } from './example-list/example-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'pokeList', pathMatch: 'full' },
-  { path: 'pokeList', component: PokelistComponent}
+  { path: '', redirectTo: 'example', pathMatch: 'full' },
+  { path: 'example', component: ExampleListComponent}
 ];
 
 @NgModule({

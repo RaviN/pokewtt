@@ -1,0 +1,30 @@
+<div [class]="trade.lucky ? 'trade lucky' : 'trade'">
+  <div class="icon">
+    <ng-container *ngIf="trade.shiny">
+      <img class="ic-shiny" [src]="shinyIcon">
+    </ng-container>
+    <img class="mon" [src]="trade.icon_url()" />
+  </div>
+  <div class="details">
+    <div class="header">
+    <p class="name">
+      {{trade.name}} &nbsp;
+    </p>&nbsp;</div>
+    <span></span>
+    <div class="trade-pills">
+      <span *ngIf="trade.special" class="pill special-trade">special trade</span>
+      <span *ngIf="trade.lucky" class="pill lucky-trade">lucky trade</span>
+    </div>
+    <div *ngIf="trade.specificMoves" class="moves">
+      <ng-container *ngIf="trade.fastMove">
+        <app-move [move]="trade.fastMove"></app-move>
+      </ng-container>
+      <ng-container *ngIf="trade.chargeMoves">
+        <app-move *ngFor="let move of trade.chargeMoves" [move]="move"></app-move>
+      </ng-container>
+    </div>
+  </div>
+  <div class="level-details">
+      <app-level-hemi [min]="trade.minLevel" [max]="trade.maxLevel" [specific]="trade.specificLevel"></app-level-hemi>
+  </div>
+</div>

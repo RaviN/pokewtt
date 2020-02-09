@@ -1,0 +1,12 @@
+<div *ngIf="profile | async as prof" [class]="'main-content ' + prof.team">
+  <div class="content-pane">
+    <div class="profile-details">
+      <h1>{{ prof.name }}</h1>
+    </div>
+    <h2 [class]="'wish-list wl-' + prof.team">Wish List</h2>
+    <app-trade-list-item
+      *ngFor="let trade of prof.trades"
+      [trade]="trade">
+    </app-trade-list-item>
+  </div>
+</div>
